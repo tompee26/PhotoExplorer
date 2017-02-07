@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PhotoExplorer</string>
+    <string name="default_content_description">Content Description</string>
+</resources>
