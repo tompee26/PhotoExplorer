@@ -10,7 +10,13 @@
     <dimen name="toolbar_print_title_top_padding">0dp</dimen>
     <dimen name="toolbar_print_title_bottom_padding">0dp</dimen>
 
-    <!-- Spinner dimensions-->
+    <!-- Spinner dimensions -->
     <dimen name="spinner_dropdown_padding">16dp</dimen>
+
+    <!-- Category dimensions -->
+    <dimen name="category_height">72dp</dimen>
+    <dimen name="category_vertical_margin">4dp</dimen>
+    <dimen name="category_horizontal_margin">8dp</dimen>
+    <dimen name="category_text_padding">8dp</dimen>
 
 </resources>
