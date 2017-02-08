@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="Prefectures">
+        <item>Hokkaido</item>
+        <item>Aomori</item>
+        <item>Iwate</item>
+        <item>Miyagi</item>
+        <item>Akita</item>
+        <item>Yamagata</item>
+        <item>Fukushima</item>
+        <item>Ibaraki</item>
+    </array>
+
+    <array name="Hokkaido">
+        <item>http://c1.staticflickr.com/4/3311/3217457186_93a02a6dcb_b.jpg</item>
+        <item>7153351</item>
+    </array>
+
+    <array name="Aomori">
+        <item>http://c1.staticflickr.com/9/8509/8523853248_50b2047267_k.jpg</item>
+        <item>1116973</item>
+    </array>
+
+    <array name="Iwate">
+        <item>http://c1.staticflickr.com/5/4050/5144104980_5407e26b57_b.jpg</item>
+        <item>1117353</item>
+    </array>
+
+    <array name="Miyagi">
+        <item>http://c1.staticflickr.com/2/1452/24390920314_b4ea15773d_c.jpg</item>
+        <item>2345873</item>
+    </array>
+
+    <array name="Akita">
+        <item>http://c1.staticflickr.com/5/4150/5086484783_00b35e088f_b.jpg</item>
+        <item>1116952</item>
+    </array>
+
+    <array name="Yamagata">
+        <item>http://c1.staticflickr.com/2/1483/23952178444_139d37832a_k.jpg</item>
+        <item>1118515</item>
+    </array>
+
+    <array name="Fukushima">
+        <item>http://c1.staticflickr.com/4/3287/3067356227_afa2dfcec2_b.jpg</item>
+        <item>1117103</item>
+    </array>
+
+    <array name="Ibaraki">
+        <item>http://c1.staticflickr.com/6/5293/5429123301_4e1ab9f481_b.jpg</item>
+        <item>1117267</item>
+    </array>
+
+</resources>
