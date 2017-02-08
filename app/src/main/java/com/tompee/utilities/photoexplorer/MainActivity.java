@@ -1,21 +1,27 @@
 package com.tompee.utilities.photoexplorer;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.tompee.utilities.photoexplorer.model.Category;
+import com.tompee.utilities.photoexplorer.view.PhotoListActivity;
 import com.tompee.utilities.photoexplorer.view.adapter.CategoryListAdapter;
 import com.tompee.utilities.photoexplorer.view.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener {
     private static final String TAG = "MainActivity";
     private static final String PREFECTURE_ARRAY_NAME = "Prefectures";
+
+    private List<Category> mCategoryList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,10 +32,11 @@ public class MainActivity extends BaseActivity {
         setToolbarTitle(R.string.app_name);
 
         ListView listView = (ListView) findViewById(R.id.listview_category);
-        List<Category> categoryList = new ArrayList<>();
-        createCategoryList(categoryList);
+        listView.setOnItemClickListener(this);
+        mCategoryList = new ArrayList<>();
+        createCategoryList();
         CategoryListAdapter adapter = new CategoryListAdapter(this, R.layout.list_category,
-                categoryList);
+                mCategoryList);
         listView.setAdapter(adapter);
     }
 
@@ -38,7 +45,7 @@ public class MainActivity extends BaseActivity {
         toolbar.setText(resId);
     }
 
-    private void createCategoryList(List<Category> list) {
+    private void createCategoryList() {
         int arrayId = getResources().getIdentifier(PREFECTURE_ARRAY_NAME, "array", getPackageName());
         TypedArray prefectureArray = getResources().obtainTypedArray(arrayId);
         Log.d(TAG, "Length of prefecture array: " + prefectureArray.length());
@@ -47,10 +54,19 @@ public class MainActivity extends BaseActivity {
             Log.d(TAG, "Prefecture name: " + name);
             int prefectureId = getResources().getIdentifier(name, "array", getPackageName());
             TypedArray prefectureObject = getResources().obtainTypedArray(prefectureId);
-            list.add(new Category(name, prefectureObject.getString(0), prefectureObject.getString(1)));
+            mCategoryList.add(new Category(name, prefectureObject.getString(0),
+                    prefectureObject.getString(1)));
+            prefectureObject.recycle();
         }
-//        list.add(new Category("Tokyo", "http://c1.staticflickr.com/8/7022/6788055657_c450e39855_b.jpg"));
-//        list.add(new Category("Sapporo", "http://c2.staticflickr.com/2/1687/26375975211_2b80aa93c2_b.jpg"));
-//        list.add(new Category("Nagoya", "http://c1.staticflickr.com/3/2625/13011103584_c589a35c7f_b.jpg"));
+        prefectureArray.recycle();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(this, PhotoListActivity.class);
+        intent.putExtra(PhotoListActivity.TAG_ID, mCategoryList.get(position).getId());
+        intent.putExtra(PhotoListActivity.TAG_NAME, mCategoryList.get(position).getName());
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

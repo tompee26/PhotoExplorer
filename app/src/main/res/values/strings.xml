@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Japan Explorer</string>
     <string name="default_content_description">Content Description</string>
+
+    <string name="flickr_api_key" translatable="false">33f94e190fedc08a1deddc4bceaf6969</string>
+    <string name="flickr_secret" translatable="false">c772320a5a47a30a</string>
 </resources>

@@ -10,12 +10,12 @@ import com.android.volley.toolbox.ImageLoader;
 class LruBitmapCache extends LruCache<String, Bitmap>
         implements ImageLoader.ImageCache {
 
-    public LruBitmapCache(int maxSize) {
+    LruBitmapCache(int maxSize) {
         super(maxSize);
     }
 
     // Returns a cache size equal to approximately three screens worth of images.
-    public static int getCacheSize(Context ctx) {
+    static int getCacheSize(Context ctx) {
         final DisplayMetrics displayMetrics = ctx.getResources().
                 getDisplayMetrics();
         final int screenWidth = displayMetrics.widthPixels;
