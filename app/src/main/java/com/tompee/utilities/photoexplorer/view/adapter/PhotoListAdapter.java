@@ -1,6 +1,7 @@
 package com.tompee.utilities.photoexplorer.view.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,11 +44,18 @@ public class PhotoListAdapter extends RecyclerView.Adapter<PhotoListAdapter.View
         return mPhotos.size();
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final ImageView mImageView;
+        public final CardView mCardview;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            mCardview = (CardView) itemView.findViewById(R.id.cardview_background);
             mImageView = (ImageView) itemView.findViewById(R.id.imageview_photo);
         }
     }

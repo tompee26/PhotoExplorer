@@ -8,6 +8,7 @@ import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.RequestFuture;
+import com.squareup.picasso.Picasso;
 import com.tompee.utilities.photoexplorer.R;
 import com.tompee.utilities.photoexplorer.controller.network.VolleySingleton;
 import com.tompee.utilities.photoexplorer.model.Photo;
@@ -24,7 +25,7 @@ public class FlickrWrapper {
     private static final String MAIN_URL = "https://api.flickr.com/services/rest/?";
 
     private static final String PHOTO_SEARCH_URL = "%smethod=flickr.photos.search&api_key=%s&woe_id=" +
-            "%s&sort=interestingness-desc&per_page=50&format=json&nojsoncallback=1";
+            "%s&sort=interestingness-desc&per_page=20&page=%d&format=json&nojsoncallback=1";
     private static final String PHOTO_INFO_URL = "%smethod=flickr.photos.getInfo&api_key=%s&photo_id=" +
             "%s&format=json&nojsoncallback=1";
     private static final String PHOTO_SIZES_URL = "%smethod=flickr.photos.getSizes&api_key=%s&photo_id=" +
@@ -44,6 +45,8 @@ public class FlickrWrapper {
     private static final String TAG_SIZE = "size";
     private static final String TAG_LABEL = "label";
     private static final String TAG_SOURCE = "source";
+    private static final String TAG_HEIGHT = "height";
+    private static final String TAG_WIDTH = "width";
 
     private static final String THUMBNAIL_LABEL = "Small 320";
     private static final String MEDIUM_800_LABEL = "Medium 800";
@@ -54,9 +57,9 @@ public class FlickrWrapper {
         mContext = context;
     }
 
-    public PhotoGroup getPhotosById(String woeId) throws NoConnectionError {
+    public PhotoGroup getPhotosById(String woeId, int page) throws NoConnectionError {
         String url = String.format(PHOTO_SEARCH_URL, MAIN_URL,
-                mContext.getString(R.string.flickr_api_key), woeId);
+                mContext.getString(R.string.flickr_api_key), woeId, page);
         Log.d(TAG, "PHOTO_SEARCH_URL: " + url);
         RequestFuture<JSONObject> future = RequestFuture.newFuture();
         JsonRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, url, null, future, future);
@@ -110,6 +113,10 @@ public class FlickrWrapper {
                 JSONObject sizeObject = sizes.getJSONObject(index);
                 if (sizeObject.getString(TAG_LABEL).equals(THUMBNAIL_LABEL)) {
                     photo.setThumbnailUrl(sizeObject.getString(TAG_SOURCE));
+                    photo.setWidth(sizeObject.getInt(TAG_WIDTH));
+                    photo.setHeight(sizeObject.getInt(TAG_HEIGHT));
+                    /* Preload images */
+                    Picasso.with(mContext).load(sizeObject.getString(TAG_SOURCE)).fetch();
                 } else if (sizeObject.getString(TAG_LABEL).equals(MEDIUM_800_LABEL)) {
                     photo.setViewableImageUrl(sizeObject.getString(TAG_SOURCE));
                 }

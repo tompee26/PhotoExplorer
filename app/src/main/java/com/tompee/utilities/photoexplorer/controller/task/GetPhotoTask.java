@@ -2,6 +2,7 @@ package com.tompee.utilities.photoexplorer.controller.task;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.android.volley.NoConnectionError;
 import com.tompee.utilities.photoexplorer.controller.imageservice.FlickrWrapper;
@@ -10,25 +11,40 @@ import com.tompee.utilities.photoexplorer.model.PhotoGroup;
 
 import java.util.List;
 
-public class GetPhotoTask extends AsyncTask<Void, Photo, Boolean> {
+public class GetPhotoTask extends AsyncTask<Integer, Photo, Boolean> {
+    private static final String TAG = "GetPhotoTask";
     private final String mWoeId;
     private final FlickrWrapper mFlickrWrapper;
     private final GetPhotoListener mGetPhotoListener;
+    private final List<String> mIdList;
 
-    public GetPhotoTask(Context context, String woeId, GetPhotoListener listener) {
+    public GetPhotoTask(Context context, List<String> idList, String woeId, GetPhotoListener listener) {
         mWoeId = woeId;
         mFlickrWrapper = new FlickrWrapper(context);
         mGetPhotoListener = listener;
+        mIdList = idList;
     }
 
     @Override
-    protected Boolean doInBackground(Void... params) {
+    protected Boolean doInBackground(Integer... params) {
         PhotoGroup photoGroup;
         try {
-            photoGroup = mFlickrWrapper.getPhotosById(mWoeId);
+            photoGroup = mFlickrWrapper.getPhotosById(mWoeId, params[0]);
             List<String> idList = photoGroup.getIdList();
+            if (isCancelled()) {
+                return true;
+            }
             for (String id : idList) {
-                publishProgress(mFlickrWrapper.getPhotoInfo(id));
+                if (isCancelled()) {
+                    return true;
+                }
+                if (!mIdList.contains(id)) {
+                    Log.d(TAG, "Unique ID size: " + mIdList.size());
+                    mIdList.add(id);
+                    publishProgress(mFlickrWrapper.getPhotoInfo(id));
+                } else {
+                    Log.d(TAG, "ID not unique: " + id);
+                }
             }
             return true;
         } catch (NoConnectionError noConnectionError) {

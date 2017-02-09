@@ -19,4 +19,7 @@
     <dimen name="category_horizontal_margin">8dp</dimen>
     <dimen name="category_text_padding">8dp</dimen>
 
+    <!-- Photo list margin -->
+    <dimen name="photo_list_margin">2dp</dimen>
+
 </resources>

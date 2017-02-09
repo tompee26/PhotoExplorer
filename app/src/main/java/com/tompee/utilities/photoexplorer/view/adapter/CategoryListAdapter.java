@@ -6,11 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.NetworkImageView;
+import com.squareup.picasso.Picasso;
 import com.tompee.utilities.photoexplorer.R;
-import com.tompee.utilities.photoexplorer.controller.network.VolleySingleton;
 import com.tompee.utilities.photoexplorer.model.Category;
 
 import java.util.List;
@@ -30,10 +30,9 @@ public class CategoryListAdapter extends ArrayAdapter<Category> {
             view = inflater.inflate(R.layout.list_category, parent, false);
         }
         Category item = getItem(position);
-        NetworkImageView imageView = (NetworkImageView) view.findViewById(R.id.
+        ImageView imageView = (ImageView) view.findViewById(R.id.
                 imageview_category_background);
-        imageView.setImageUrl(item.getUrl(), VolleySingleton.getInstance(getContext()).
-                getImageLoader());
+        Picasso.with(getContext()).load(item.getUrl()).into(imageView);
         TextView textView = (TextView) view.findViewById(R.id.textview_category_name);
         textView.setText(item.getName());
         return view;

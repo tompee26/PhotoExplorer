@@ -6,6 +6,8 @@ public class Photo {
     private String mTitle;
     private String mThumbnailUrl;
     private String mViewableImageUrl;
+    private int mWidth;
+    private int mHeight;
 
     public String getUsername() {
         return mUsername;
@@ -45,5 +47,21 @@ public class Photo {
 
     public void setViewableImageUrl(String viewableImageUrl) {
         mViewableImageUrl = viewableImageUrl;
+    }
+
+    public int getWidth() {
+        return mWidth;
+    }
+
+    public void setWidth(int width) {
+        mWidth = width;
+    }
+
+    public int getHeight() {
+        return mHeight;
+    }
+
+    public void setHeight(int height) {
+        mHeight = height;
     }
 }
