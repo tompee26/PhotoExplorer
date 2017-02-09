@@ -1,2 +1,2 @@
 # PhotoExplorer
-A sample photo explorer application
+A sample photoGroup explorer application

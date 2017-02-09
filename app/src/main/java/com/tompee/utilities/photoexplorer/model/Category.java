@@ -3,9 +3,9 @@ package com.tompee.utilities.photoexplorer.model;
 import android.support.annotation.NonNull;
 
 public class Category {
-    private String mName;
-    private String mUrl;
-    private String mId;
+    private final String mName;
+    private final String mUrl;
+    private final String mId;
 
     public Category(@NonNull String name, @NonNull String url, @NonNull String id) {
         mName = name;

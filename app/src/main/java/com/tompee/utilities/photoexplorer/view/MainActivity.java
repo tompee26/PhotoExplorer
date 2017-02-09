@@ -1,4 +1,4 @@
-package com.tompee.utilities.photoexplorer;
+package com.tompee.utilities.photoexplorer.view;
 
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -7,10 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
+import com.tompee.utilities.photoexplorer.R;
 import com.tompee.utilities.photoexplorer.model.Category;
-import com.tompee.utilities.photoexplorer.view.PhotoListActivity;
 import com.tompee.utilities.photoexplorer.view.adapter.CategoryListAdapter;
 import com.tompee.utilities.photoexplorer.view.base.BaseActivity;
 
@@ -40,11 +39,6 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         listView.setAdapter(adapter);
     }
 
-    private void setToolbarTitle(int resId) {
-        TextView toolbar = (TextView) findViewById(R.id.toolbar_text);
-        toolbar.setText(resId);
-    }
-
     private void createCategoryList() {
         int arrayId = getResources().getIdentifier(PREFECTURE_ARRAY_NAME, "array", getPackageName());
         TypedArray prefectureArray = getResources().obtainTypedArray(arrayId);
@@ -54,6 +48,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
             Log.d(TAG, "Prefecture name: " + name);
             int prefectureId = getResources().getIdentifier(name, "array", getPackageName());
             TypedArray prefectureObject = getResources().obtainTypedArray(prefectureId);
+            //noinspection ConstantConditions,ConstantConditions
             mCategoryList.add(new Category(name, prefectureObject.getString(0),
                     prefectureObject.getString(1)));
             prefectureObject.recycle();
@@ -68,5 +63,6 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         intent.putExtra(PhotoListActivity.TAG_NAME, mCategoryList.get(position).getName());
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        setNextTransition();
     }
 }

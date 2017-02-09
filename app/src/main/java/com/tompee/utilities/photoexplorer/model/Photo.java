@@ -1,33 +1,49 @@
 package com.tompee.utilities.photoexplorer.model;
 
-import java.util.List;
-
 public class Photo {
-    private int mPageCount;
-    private int mPage;
-    private int mTotal;
-    private List<String> mIdList;
+    private String mUsername;
+    private String mRealName;
+    private String mTitle;
+    private String mThumbnailUrl;
+    private String mViewableImageUrl;
 
-    public Photo(int pageCount, int page, int total, List<String> idList) {
-        mPageCount = pageCount;
-        mPage = page;
-        mTotal = total;
-        mIdList = idList;
+    public String getUsername() {
+        return mUsername;
     }
 
-    public int getPageCount() {
-        return mPageCount;
+    public void setUserName(String username) {
+        mUsername = username;
     }
 
-    public int getPage() {
-        return mPage;
+    public String getRealName() {
+        return mRealName;
     }
 
-    public int getTotal() {
-        return mTotal;
+    public void setRealName(String realName) {
+        mRealName = realName;
     }
 
-    public List<String> getIdList() {
-        return mIdList;
+    public String getTitle() {
+        return mTitle;
+    }
+
+    public void setTitle(String title) {
+        mTitle = title;
+    }
+
+    public String getThumbnailUrl() {
+        return mThumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        mThumbnailUrl = thumbnailUrl;
+    }
+
+    public String getViewableImageUrl() {
+        return mViewableImageUrl;
+    }
+
+    public void setViewableImageUrl(String viewableImageUrl) {
+        mViewableImageUrl = viewableImageUrl;
     }
 }
