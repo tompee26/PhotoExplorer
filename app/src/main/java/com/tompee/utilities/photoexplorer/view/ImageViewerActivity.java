@@ -4,12 +4,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.tompee.utilities.photoexplorer.R;
 import com.tompee.utilities.photoexplorer.view.base.BaseActivity;
 import com.tompee.utilities.photoexplorer.view.custom.TouchImageView;
 
-public class ImageViewerActivity extends BaseActivity {
+public class ImageViewerActivity extends BaseActivity implements Callback {
     public static final String TAG_URL = "url";
     public static final String TAG_USERNAME = "username";
     public static final String TAG_REALNAME = "realname";
@@ -23,7 +24,7 @@ public class ImageViewerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imageviewer);
         mImageView = (TouchImageView) findViewById(R.id.imageview_viewer);
-        Picasso.with(this).load(getIntent().getStringExtra(TAG_URL)).into(mImageView);
+        Picasso.with(this).load(getIntent().getStringExtra(TAG_URL)).into(mImageView, this);
         final View creditsView = findViewById(R.id.credits);
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,5 +53,14 @@ public class ImageViewerActivity extends BaseActivity {
     public void onBackPressed() {
         mImageView.resetZoom();
         super.onBackPressed();
+    }
+
+    @Override
+    public void onSuccess() {
+    }
+
+    @Override
+    public void onError() {
+
     }
 }
