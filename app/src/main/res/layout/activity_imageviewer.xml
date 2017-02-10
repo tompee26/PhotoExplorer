@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+
+    <com.tompee.utilities.photoexplorer.view.custom.TouchImageView
+        android:id="@+id/imageview_viewer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/default_content_description"
+        android:transitionName="photo" />
+
+    <LinearLayout
+        android:id="@+id/credits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/selector_gradient"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/image_viewer_vertical_padding"
+        android:paddingLeft="@dimen/image_viewer_horizontal_padding"
+        android:paddingRight="@dimen/image_viewer_horizontal_padding"
+        android:paddingTop="@dimen/image_viewer_vertical_padding">
+
+        <TextView
+            android:id="@+id/textview_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/light_text" />
+
+        <TextView
+            android:id="@+id/textview_copyright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/image_viewer_text_margins"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/light_text" />
+    </LinearLayout>
+
+</FrameLayout>

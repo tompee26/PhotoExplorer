@@ -44,11 +44,6 @@ public class PhotoListAdapter extends RecyclerView.Adapter<PhotoListAdapter.View
         return mPhotos.size();
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        return position;
-    }
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final ImageView mImageView;
         public final CardView mCardview;

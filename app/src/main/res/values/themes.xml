@@ -2,7 +2,7 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@color/background</item>
+        <item name="android:windowBackground">@color/light_background</item>
         <item name="android:actionMenuTextColor">@color/light_text</item>
         <item name="actionMenuTextColor">@drawable/selector_action_menu</item>
         <item name="android:textColorSecondary">@color/light_text</item>
@@ -10,6 +10,15 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:spinnerItemStyle">@style/SpinnerItemStyle</item>
         <item name="android:spinnerDropDownItemStyle">@style/SpinnerItemDropDownStyle</item>
+        <item name="android:windowEnterTransition">@transition/fade</item>
+        <item name="android:windowExitTransition">@transition/fade</item>
+    </style>
+    
+    <style name="ImageViewerScreenTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/dark_background</item>
+        <item name="colorPrimaryDark">@color/dark_background</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
 </resources>

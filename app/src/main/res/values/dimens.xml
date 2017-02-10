@@ -22,4 +22,9 @@
     <!-- Photo list margin -->
     <dimen name="photo_list_margin">2dp</dimen>
 
+    <!-- Image viewer -->
+    <dimen name="image_viewer_text_margins">4dp</dimen>
+    <dimen name="image_viewer_horizontal_padding">16dp</dimen>
+    <dimen name="image_viewer_vertical_padding">32dp</dimen>
+
 </resources>

@@ -77,17 +77,11 @@ public class BaseActivity extends FragmentActivity implements DelayTask.DelayLis
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        setBackTransition();
-    }
-
     protected void setNextTransition() {
         overridePendingTransition(R.anim.slide_inleft, R.anim.slide_outleft);
     }
 
-    private void setBackTransition() {
+    protected void setBackTransition() {
         overridePendingTransition(R.anim.slide_inright, R.anim.slide_outright);
     }
 

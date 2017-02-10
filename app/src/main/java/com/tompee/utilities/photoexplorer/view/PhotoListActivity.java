@@ -1,6 +1,9 @@
 package com.tompee.utilities.photoexplorer.view;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -8,6 +11,7 @@ import android.view.View;
 
 import com.tompee.utilities.photoexplorer.R;
 import com.tompee.utilities.photoexplorer.controller.listener.EndlessRecyclerViewScrollListener;
+import com.tompee.utilities.photoexplorer.controller.listener.ItemClickListener;
 import com.tompee.utilities.photoexplorer.controller.task.GetPhotoTask;
 import com.tompee.utilities.photoexplorer.model.Photo;
 import com.tompee.utilities.photoexplorer.view.adapter.PhotoListAdapter;
@@ -16,7 +20,8 @@ import com.tompee.utilities.photoexplorer.view.base.BaseActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetPhotoListener {
+public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetPhotoListener,
+        ItemClickListener.OnItemClickListener {
     public static final String TAG_ID = "id";
     public static final String TAG_NAME = "name";
 
@@ -41,7 +46,7 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
         recyclerView.setItemViewCacheSize(30);
         recyclerView.setDrawingCacheEnabled(true);
         recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
-
+        ItemClickListener.addTo(recyclerView).setOnItemClickListener(this);
         mIdList = new ArrayList<>();
 
         mPhotoList = new ArrayList<>();
@@ -50,7 +55,7 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
 
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2,
                 StaggeredGridLayoutManager.VERTICAL);
-        layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
+        layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         recyclerView.setLayoutManager(layoutManager);
         EndlessRecyclerViewScrollListener scrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
             @Override
@@ -90,11 +95,42 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onPause() {
+        super.onPause();
         if (mGetPhotoTask != null) {
             mGetPhotoTask.cancel(true);
             mGetPhotoTask = null;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        createGetPhotoTask();
+    }
+
+    @Override
+    public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+        Photo photo = mPhotoList.get(position);
+        Log.d(TAG, "Position: " + position + " Title: " + photo.getTitle());
+        Intent intent = new Intent(this, ImageViewerActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra(ImageViewerActivity.TAG_URL, photo.getThumbnailUrl());
+        intent.putExtra(ImageViewerActivity.TAG_TITLE, photo.getTitle());
+        intent.putExtra(ImageViewerActivity.TAG_REALNAME, photo.getRealName());
+        intent.putExtra(ImageViewerActivity.TAG_USERNAME, photo.getUsername());
+
+        Pair<View, String> photoTransition = Pair.create((v.findViewById(R.id.
+                imageview_photo)), "photo");
+        //noinspection unchecked
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(this, photoTransition);
+        startActivity(intent, options.toBundle());
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        setBackTransition();
     }
 }

@@ -1,5 +1,6 @@
 package com.tompee.utilities.photoexplorer.controller.imageservice;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 
@@ -41,6 +42,7 @@ public class FlickrWrapper {
     private static final String TAG_REALNAME = "realname";
     private static final String TAG_USERNAME = "username";
     private static final String TAG_TITLE = "title";
+    private static final String TAG_CONTENT = "_content";
     private static final String TAG_SIZES = "sizes";
     private static final String TAG_SIZE = "size";
     private static final String TAG_LABEL = "label";
@@ -48,7 +50,7 @@ public class FlickrWrapper {
     private static final String TAG_HEIGHT = "height";
     private static final String TAG_WIDTH = "width";
 
-    private static final String THUMBNAIL_LABEL = "Small 320";
+    private static final String THUMBNAIL_LABEL = "Medium 800";
     private static final String MEDIUM_800_LABEL = "Medium 800";
 
     private final Context mContext;
@@ -58,7 +60,7 @@ public class FlickrWrapper {
     }
 
     public PhotoGroup getPhotosById(String woeId, int page) throws NoConnectionError {
-        String url = String.format(PHOTO_SEARCH_URL, MAIN_URL,
+        @SuppressLint("DefaultLocale") String url = String.format(PHOTO_SEARCH_URL, MAIN_URL,
                 mContext.getString(R.string.flickr_api_key), woeId, page);
         Log.d(TAG, "PHOTO_SEARCH_URL: " + url);
         RequestFuture<JSONObject> future = RequestFuture.newFuture();
@@ -92,7 +94,7 @@ public class FlickrWrapper {
         VolleySingleton.getInstance(mContext).addToRequestQueue(jsonRequest);
         try {
             JSONObject photoObject = future.get().getJSONObject(TAG_PHOTO);
-            photo.setTitle(photoObject.getString(TAG_TITLE));
+            photo.setTitle(photoObject.getJSONObject(TAG_TITLE).getString(TAG_CONTENT));
             photo.setRealName(photoObject.getJSONObject(TAG_OWNER).getString(TAG_REALNAME));
             photo.setUserName(photoObject.getJSONObject(TAG_OWNER).getString(TAG_USERNAME));
         } catch (InterruptedException | ExecutionException | JSONException e) {
