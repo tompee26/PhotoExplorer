@@ -8,10 +8,11 @@
 
     <include layout="@layout/toolbar" />
 
-    <ListView
+    <de.halfbit.pinnedsection.PinnedSectionListView
         android:id="@+id/listview_category"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@null" />
+        android:divider="@null"
+        android:scrollbars="none" />
 
 </LinearLayout>

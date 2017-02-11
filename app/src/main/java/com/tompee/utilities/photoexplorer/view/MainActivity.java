@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener {
-    private static final String TAG = "MainActivity";
     private static final String PREFECTURE_ARRAY_NAME = "Prefectures";
 
     private List<Category> mCategoryList;
@@ -42,15 +41,18 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
     private void createCategoryList() {
         int arrayId = getResources().getIdentifier(PREFECTURE_ARRAY_NAME, "array", getPackageName());
         TypedArray prefectureArray = getResources().obtainTypedArray(arrayId);
-        Log.d(TAG, "Length of prefecture array: " + prefectureArray.length());
         for (int index = 0; index < prefectureArray.length(); index++) {
             String name = prefectureArray.getString(index);
-            Log.d(TAG, "Prefecture name: " + name);
             int prefectureId = getResources().getIdentifier(name, "array", getPackageName());
             TypedArray prefectureObject = getResources().obtainTypedArray(prefectureId);
-            //noinspection ConstantConditions,ConstantConditions
-            mCategoryList.add(new Category(name, prefectureObject.getString(0),
-                    prefectureObject.getString(1)));
+            if (prefectureObject.getInt(0, 0) == CategoryListAdapter.TYPE_SECTION) {
+                /* Section */
+                mCategoryList.add(new Category(0, prefectureObject.getString(1), null, null));
+            } else {
+                //noinspection ConstantConditions,ConstantConditions
+                mCategoryList.add(new Category(1, name, prefectureObject.getString(1),
+                        prefectureObject.getString(2)));
+            }
             prefectureObject.recycle();
         }
         prefectureArray.recycle();
@@ -58,6 +60,9 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (mCategoryList.get(position).getType() == CategoryListAdapter.TYPE_SECTION) {
+            return;
+        }
         Intent intent = new Intent(this, PhotoListActivity.class);
         intent.putExtra(PhotoListActivity.TAG_ID, mCategoryList.get(position).getId());
         intent.putExtra(PhotoListActivity.TAG_NAME, mCategoryList.get(position).getName());

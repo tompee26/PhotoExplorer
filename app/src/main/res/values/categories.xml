@@ -2,13 +2,16 @@
 <resources>
 
     <array name="Prefectures">
+        <item>HokkaidoRegion</item>
         <item>Hokkaido</item>
+        <item>TohokuRegion</item>
         <item>Aomori</item>
         <item>Iwate</item>
         <item>Miyagi</item>
         <item>Akita</item>
         <item>Yamagata</item>
         <item>Fukushima</item>
+        <item>KantoRegion</item>
         <item>Ibaraki</item>
         <item>Tochigi</item>
         <item>Gunma</item>
@@ -16,94 +19,366 @@
         <item>Chiba</item>
         <item>Tokyo</item>
         <item>Kanagawa</item>
+        <item>ChubuRegion</item>
         <item>Niigata</item>
         <item>Toyama</item>
         <item>Ishikawa</item>
+        <item>Fukui</item>
+        <item>Yamanashi</item>
+        <item>Nagano</item>
+        <item>Gifu</item>
+        <item>Shizuoka</item>
+        <item>Aichi</item>
+        <item>KansaiRegion</item>
+        <item>Mie</item>
+        <item>Shiga</item>
+        <item>Kyoto</item>
+        <item>Osaka</item>
+        <item>Hyogo</item>
+        <item>Nara</item>
+        <item>Wakayama</item>
+        <item>ChugokuRegion</item>
+        <item>Tottori</item>
+        <item>Shimane</item>
+        <item>Okayama</item>
+        <item>Hiroshima</item>
+        <item>Yamaguchi</item>
+        <item>ShikokuRegion</item>
+        <item>Tokushima</item>
+        <item>Kagawa</item>
+        <item>Ehime</item>
+        <item>Kochi</item>
+        <item>KyushuRegion</item>
+        <item>Fukuoka</item>
+        <item>Saga</item>
+        <item>Nagasaki</item>
+        <item>Kumamoto</item>
+        <item>Oita</item>
+        <item>Miyazaki</item>
+        <item>Kagoshima</item>
+        <item>Okinawa</item>
+    </array>
+
+    <array name="HokkaidoRegion">
+        <item>0</item>
+        <item>Hokkaidō Region</item>
     </array>
 
     <array name="Hokkaido">
+        <item>1</item>
         <item>http://c1.staticflickr.com/4/3311/3217457186_93a02a6dcb_b.jpg</item>
         <item>7153351</item>
     </array>
 
+    <array name="TohokuRegion">
+        <item>0</item>
+        <item>Tōhoku Region</item>
+    </array>
+
     <array name="Aomori">
+        <item>1</item>
         <item>http://c1.staticflickr.com/9/8509/8523853248_50b2047267_k.jpg</item>
         <item>2345853</item>
     </array>
 
     <array name="Iwate">
+        <item>1</item>
         <item>http://c1.staticflickr.com/5/4050/5144104980_5407e26b57_b.jpg</item>
         <item>2345865</item>
     </array>
 
     <array name="Miyagi">
+        <item>1</item>
         <item>http://c1.staticflickr.com/2/1452/24390920314_b4ea15773d_c.jpg</item>
         <item>2345873</item>
     </array>
 
     <array name="Akita">
+        <item>1</item>
         <item>http://c1.staticflickr.com/5/4150/5086484783_00b35e088f_b.jpg</item>
         <item>2345852</item>
     </array>
 
     <array name="Yamagata">
+        <item>1</item>
         <item>http://c1.staticflickr.com/2/1483/23952178444_139d37832a_k.jpg</item>
         <item>2345893</item>
     </array>
 
     <array name="Fukushima">
+        <item>1</item>
         <item>http://c1.staticflickr.com/4/3287/3067356227_afa2dfcec2_b.jpg</item>
         <item>2345858</item>
     </array>
 
+    <array name="KantoRegion">
+        <item>0</item>
+        <item>Kantō Region</item>
+    </array>
+
     <array name="Ibaraki">
+        <item>1</item>
         <item>http://c1.staticflickr.com/6/5293/5429123301_4e1ab9f481_b.jpg</item>
         <item>2345863</item>
     </array>
 
     <array name="Tochigi">
+        <item>1</item>
         <item>http://c1.staticflickr.com/4/3097/2448030719_6ba6b7939a_b.jpg</item>
         <item>2345887</item>
     </array>
 
     <array name="Gunma">
+        <item>1</item>
         <item>http://c1.staticflickr.com/8/7143/6793919631_de6bb7de9b_b.jpg</item>
         <item>2345860</item>
     </array>
 
     <array name="Saitama">
+        <item>1</item>
         <item>http://c1.staticflickr.com/6/5095/5501559759_84f186d3ca_b.jpg</item>
         <item>2345883</item>
     </array>
 
     <array name="Chiba">
+        <item>1</item>
         <item>http://c1.staticflickr.com/6/5512/11767793754_e6ced819df_h.jpg</item>
         <item>2345854</item>
     </array>
 
     <array name="Tokyo">
+        <item>1</item>
         <item>http://c1.staticflickr.com/4/3664/3308094600_c8a1ece0e5_b.jpg</item>
         <item>2345889</item>
     </array>
 
     <array name="Kanagawa">
+        <item>1</item>
         <item>http://c1.staticflickr.com/7/6122/5960134485_a0e9d0d567_b.jpg</item>
         <item>2345868</item>
     </array>
 
+    <array name="ChubuRegion">
+        <item>0</item>
+        <item>Chūbu	Region</item>
+    </array>
+
     <array name="Niigata">
+        <item>1</item>
         <item>http://c1.staticflickr.com/1/365/32027405590_96d7bf2191_h.jpg</item>
         <item>2345878</item>
     </array>
 
     <array name="Toyama">
+        <item>1</item>
         <item>http://c1.staticflickr.com/1/630/32544969336_cee2a5ae8b_h.jpg</item>
         <item>2345891</item>
     </array>
 
     <array name="Ishikawa">
+        <item>1</item>
         <item>http://c1.staticflickr.com/8/7224/7249518522_a0ae8516bc_k.jpg</item>
         <item>2345864</item>
+    </array>
+
+    <array name="Fukui">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/3/2851/12091760495_e339376bb2_k.jpg</item>
+        <item>2345856</item>
+    </array>
+
+    <array name="Yamanashi">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/2/1676/23360836583_b3fe1aaed4_k.jpg</item>
+        <item>2345895</item>
+    </array>
+
+    <array name="Nagano">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/2/1655/24576752606_75d3ad296d_k.jpg</item>
+        <item>2345875</item>
+    </array>
+
+    <array name="Gifu">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/8/7164/6748282375_2928780135_b.jpg</item>
+        <item>2345859</item>
+    </array>
+
+    <array name="Shizuoka">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/8/7055/8689017048_36883ab7b9_b.jpg</item>
+        <item>2345886</item>
+    </array>
+
+    <array name="Aichi">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/8/7650/16685890837_41a3d16e15_h.jpg</item>
+        <item>2345851</item>
+    </array>
+
+    <array name="KansaiRegion">
+        <item>0</item>
+        <item>Kansai Region</item>
+    </array>
+
+    <array name="Mie">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/6/5472/12132379896_c929b40aac_k.jpg</item>
+        <item>2345872</item>
+    </array>
+
+    <array name="Shiga">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/6/5124/5300304318_639ee19924_b.jpg</item>
+        <item>2345884</item>
+    </array>
+
+    <array name="Kyoto">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/1/777/22203887122_418f044bae_k.jpg</item>
+        <item>2345871</item>
+    </array>
+
+    <array name="Osaka">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/2/1477/25425161470_85c1eca441_k.jpg</item>
+        <item>2345881</item>
+    </array>
+
+    <array name="Hyogo">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/8/7597/17212724936_f43e161a8e_b.jpg</item>
+        <item>2345862</item>
+    </array>
+
+    <array name="Nara">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/8/7768/18266128721_ed8e010042_b.jpg</item>
+        <item>2345877</item>
+    </array>
+
+    <array name="Wakayama">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/2/1491/26066302406_82371aace2_k.jpg</item>
+        <item>2345892</item>
+    </array>
+
+    <array name="ChugokuRegion">
+        <item>0</item>
+        <item>Chūgoku Region</item>
+    </array>
+
+    <array name="Tottori">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/9/8089/8543693341_8c0a212bf7_b.jpg</item>
+        <item>2345890</item>
+    </array>
+
+    <array name="Shimane">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/9/8326/8413752534_ef2fa69550_b.jpg</item>
+        <item>2345885</item>
+    </array>
+
+    <array name="Okayama">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/9/8092/8377057346_5bfd132921_b.jpg</item>
+        <item>2345880</item>
+    </array>
+
+    <array name="Hiroshima">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/9/8794/28001016653_8b1d8032d8_k.jpg</item>
+        <item>2345861</item>
+    </array>
+
+    <array name="Yamaguchi">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/8/7639/16811459589_162f9d01a4_k.jpg</item>
+        <item>2345894</item>
+    </array>
+
+    <array name="ShikokuRegion">
+        <item>0</item>
+        <item>Shikoku Region</item>
+    </array>
+
+    <array name="Tokushima">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/8/7181/6882759244_5643d15f19_k.jpg</item>
+        <item>2345888</item>
+    </array>
+
+    <array name="Kagawa">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/8/7411/14029110541_17326a2929_k.jpg</item>
+        <item>2345866</item>
+    </array>
+
+    <array name="Ehime">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/2/1549/23595777429_de2e62838d_k.jpg</item>
+        <item>2345855</item>
+    </array>
+
+    <array name="Kochi">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/8/7261/6885840322_8b1f7c0d39_h.jpg</item>
+        <item>2345869</item>
+    </array>
+
+    <array name="KyushuRegion">
+        <item>0</item>
+        <item>Kyūshū Region</item>
+    </array>
+
+    <array name="Fukuoka">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/2/1503/24580134825_3e4c7564e0_b.jpg</item>
+        <item>58646425</item>
+    </array>
+
+    <array name="Saga">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/6/5615/15158137014_8df396325e_k.jpg</item>
+        <item>2345882</item>
+    </array>
+
+    <array name="Nagasaki">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/8/7358/16591253322_adc2491cdc_k.jpg</item>
+        <item>2345876</item>
+    </array>
+
+    <array name="Kumamoto">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/8/7305/12295318193_c9ee370c7c_k.jpg</item>
+        <item>2345870</item>
+    </array>
+
+    <array name="Oita">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/8/7628/16847912116_fed0a7d5e3_k.jpg</item>
+        <item>2345879</item>
+    </array>
+
+    <array name="Miyazaki">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/8/7725/17400729249_0508b40f54_h.jpg</item>
+        <item>2345874</item>
+    </array>
+
+    <array name="Kagoshima">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/4/3682/12511421553_4f9a62957d_k.jpg</item>
+        <item>2345867</item>
+    </array>
+
+    <array name="Okinawa">
+        <item>1</item>
+        <item>http://c1.staticflickr.com/9/8523/8544402242_45a1faecc9_b.jpg</item>
+        <item>2345896</item>
     </array>
 
 </resources>
