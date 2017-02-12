@@ -17,8 +17,14 @@ public class GetPhotoTask extends AsyncTask<Integer, Photo, Boolean> {
     private final FlickrWrapper mFlickrWrapper;
     private final GetPhotoListener mGetPhotoListener;
     private final List<String> mIdList;
+    private final List<Photo> mPhotoList;
 
-    public GetPhotoTask(Context context, List<String> idList, String woeId, GetPhotoListener listener) {
+    /* Max photos is set to prevent unstable behavior of recycler view and staggered grid view */
+    private static final int MAX_PHOTOS = 20;
+
+    public GetPhotoTask(Context context, List<Photo> photoList, List<String> idList,
+                        String woeId, GetPhotoListener listener) {
+        mPhotoList = photoList;
         mWoeId = woeId;
         mFlickrWrapper = new FlickrWrapper(context);
         mGetPhotoListener = listener;
@@ -36,6 +42,9 @@ public class GetPhotoTask extends AsyncTask<Integer, Photo, Boolean> {
             }
             for (String id : idList) {
                 if (isCancelled()) {
+                    return true;
+                }
+                if (mPhotoList.size() >= MAX_PHOTOS) {
                     return true;
                 }
                 if (!mIdList.contains(id)) {

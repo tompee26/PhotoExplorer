@@ -5,12 +5,16 @@ public class Category {
     private final String mName;
     private final String mUrl;
     private final String mId;
+    private final String mCapital;
+    private final String mWebsite;
 
-    public Category(int type, String name, String url, String id) {
+    public Category(int type, String name, String url, String id, String capital, String website) {
         mType = type;
         mName = name;
         mUrl = url;
         mId = id;
+        mCapital = capital;
+        mWebsite = website;
     }
 
     public int getType() {
@@ -27,5 +31,13 @@ public class Category {
 
     public String getId() {
         return mId;
+    }
+
+    public String getCapital() {
+        return mCapital;
+    }
+
+    public String getWebsite() {
+        return mWebsite;
     }
 }

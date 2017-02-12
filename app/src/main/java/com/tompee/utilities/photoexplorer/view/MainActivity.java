@@ -3,7 +3,6 @@ package com.tompee.utilities.photoexplorer.view;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -47,11 +46,13 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
             TypedArray prefectureObject = getResources().obtainTypedArray(prefectureId);
             if (prefectureObject.getInt(0, 0) == CategoryListAdapter.TYPE_SECTION) {
                 /* Section */
-                mCategoryList.add(new Category(0, prefectureObject.getString(1), null, null));
+                mCategoryList.add(new Category(0, prefectureObject.getString(1),
+                        null, null, null, null));
             } else {
                 //noinspection ConstantConditions,ConstantConditions
                 mCategoryList.add(new Category(1, name, prefectureObject.getString(1),
-                        prefectureObject.getString(2)));
+                        prefectureObject.getString(2), prefectureObject.getString(3),
+                        prefectureObject.getString(4)));
             }
             prefectureObject.recycle();
         }
@@ -66,6 +67,9 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         Intent intent = new Intent(this, PhotoListActivity.class);
         intent.putExtra(PhotoListActivity.TAG_ID, mCategoryList.get(position).getId());
         intent.putExtra(PhotoListActivity.TAG_NAME, mCategoryList.get(position).getName());
+        intent.putExtra(PhotoListActivity.TAG_URL, mCategoryList.get(position).getUrl());
+        intent.putExtra(PhotoListActivity.TAG_CAPITAL, mCategoryList.get(position).getCapital());
+        intent.putExtra(PhotoListActivity.TAG_WEBSITE, mCategoryList.get(position).getWebsite());
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         setNextTransition();

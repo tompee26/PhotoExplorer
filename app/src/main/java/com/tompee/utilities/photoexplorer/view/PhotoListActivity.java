@@ -1,14 +1,21 @@
 package com.tompee.utilities.photoexplorer.view;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.tompee.utilities.photoexplorer.R;
 import com.tompee.utilities.photoexplorer.controller.listener.EndlessRecyclerViewScrollListener;
 import com.tompee.utilities.photoexplorer.controller.listener.ItemClickListener;
@@ -24,6 +31,9 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
         ItemClickListener.OnItemClickListener {
     public static final String TAG_ID = "id";
     public static final String TAG_NAME = "name";
+    public static final String TAG_URL = "url";
+    public static final String TAG_CAPITAL = "capital";
+    public static final String TAG_WEBSITE = "website";
 
     private static final String TAG = "PhotoListActivity";
 
@@ -35,11 +45,36 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);
+        setTheme(R.style.PhotoListTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photolist);
         setToolbar(R.id.toolbar, true);
-        setToolbarTitle(getIntent().getStringExtra(TAG_NAME));
+        ImageView toolbarBg = (ImageView) findViewById(R.id.toolbar_bg);
+        toolbarBg.setBackgroundColor(ContextCompat.getColor(this, android.R.color.transparent));
+
+        ImageView imageView = (ImageView) findViewById(R.id.image_view_header);
+        Picasso.with(this).load(getIntent().getStringExtra(TAG_URL)).into(imageView);
+        TextView textView = (TextView) findViewById(R.id.textview_main_name);
+        textView.setText(String.format(getString(R.string.explore_prefix),
+                getIntent().getStringExtra(TAG_NAME)));
+
+        /* Set up cardview */
+        textView = (TextView) findViewById(R.id.textview_title);
+        textView.setText(String.format(getString(R.string.prefecture_prefix),
+                getIntent().getStringExtra(TAG_NAME)));
+        textView = (TextView) findViewById(R.id.textview_capital);
+        textView.setText(String.format(getString(R.string.capital_prefix),
+                getIntent().getStringExtra(TAG_CAPITAL)));
+        textView = (TextView) findViewById(R.id.textview_website);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+            textView.setText(Html.fromHtml(String.format(getString(R.string.website_prefix),
+                    getIntent().getStringExtra(TAG_WEBSITE)), Html.FROM_HTML_MODE_LEGACY));
+        } else {
+            //noinspection deprecation
+            textView.setText(Html.fromHtml(String.format(getString(R.string.website_prefix),
+                    getIntent().getStringExtra(TAG_WEBSITE))));
+        }
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view_photo_list);
         recyclerView.setHasFixedSize(true);
@@ -70,7 +105,8 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
 
     private void createGetPhotoTask() {
         if (mGetPhotoTask == null) {
-            mGetPhotoTask = new GetPhotoTask(this, mIdList, getIntent().getStringExtra(TAG_ID), this);
+            mGetPhotoTask = new GetPhotoTask(this, mPhotoList, mIdList, getIntent().
+                    getStringExtra(TAG_ID), this);
             mGetPhotoTask.execute(mPageCount);
         }
     }
@@ -113,9 +149,11 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
         Photo photo = mPhotoList.get(position);
         Log.d(TAG, "Position: " + position + " Title: " + photo.getTitle());
+        /* Prefetch data */
+        Picasso.with(this).load(photo.getViewableImageUrl()).fetch();
         Intent intent = new Intent(this, ImageViewerActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra(ImageViewerActivity.TAG_URL, photo.getThumbnailUrl());
+        intent.putExtra(ImageViewerActivity.TAG_URL, photo.getViewableImageUrl());
         intent.putExtra(ImageViewerActivity.TAG_TITLE, photo.getTitle());
         intent.putExtra(ImageViewerActivity.TAG_REALNAME, photo.getRealName());
         intent.putExtra(ImageViewerActivity.TAG_USERNAME, photo.getUsername());

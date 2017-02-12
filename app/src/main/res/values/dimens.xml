@@ -21,6 +21,9 @@
 
     <!-- Photo list margin -->
     <dimen name="photo_list_margin">2dp</dimen>
+    <dimen name="photo_list_text_padding">16dp</dimen>
+    <dimen name="photo_list_card_view">8dp</dimen>
+    <dimen name="photo_list_text_distance">4dp</dimen>
 
     <!-- Image viewer -->
     <dimen name="image_viewer_text_margins">4dp</dimen>

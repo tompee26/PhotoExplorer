@@ -50,7 +50,7 @@ public class FlickrWrapper {
     private static final String TAG_HEIGHT = "height";
     private static final String TAG_WIDTH = "width";
 
-    private static final String THUMBNAIL_LABEL = "Medium 800";
+    private static final String THUMBNAIL_LABEL = "Small 320";
     private static final String MEDIUM_800_LABEL = "Medium 800";
 
     private final Context mContext;

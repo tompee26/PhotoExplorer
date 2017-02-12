@@ -68,6 +68,8 @@
         <item>1</item>
         <item>http://c1.staticflickr.com/4/3311/3217457186_93a02a6dcb_b.jpg</item>
         <item>7153351</item>
+        <item>Sapporo</item>
+        <item>http://www.pref.hokkaido.lg.jp</item>
     </array>
 
     <array name="TohokuRegion">
@@ -79,36 +81,48 @@
         <item>1</item>
         <item>http://c1.staticflickr.com/9/8509/8523853248_50b2047267_k.jpg</item>
         <item>2345853</item>
+        <item>Aomori</item>
+        <item>http://www.pref.aomori.lg.jp/</item>
     </array>
 
     <array name="Iwate">
         <item>1</item>
         <item>http://c1.staticflickr.com/5/4050/5144104980_5407e26b57_b.jpg</item>
         <item>2345865</item>
+        <item>Morioka</item>
+        <item>http://www.pref.iwate.jp/</item>
     </array>
 
     <array name="Miyagi">
         <item>1</item>
         <item>http://c1.staticflickr.com/2/1452/24390920314_b4ea15773d_c.jpg</item>
         <item>2345873</item>
+        <item>Sendai</item>
+        <item>http://www.pref.miyagi.jp/</item>
     </array>
 
     <array name="Akita">
         <item>1</item>
         <item>http://c1.staticflickr.com/5/4150/5086484783_00b35e088f_b.jpg</item>
         <item>2345852</item>
+        <item>Akita (city)</item>
+        <item>http://www.pref.akita.lg.jp/</item>
     </array>
 
     <array name="Yamagata">
         <item>1</item>
         <item>http://c1.staticflickr.com/2/1483/23952178444_139d37832a_k.jpg</item>
         <item>2345893</item>
+        <item>Yamagata</item>
+        <item>http://www.pref.yamagata.jp/</item>
     </array>
 
     <array name="Fukushima">
         <item>1</item>
         <item>http://c1.staticflickr.com/4/3287/3067356227_afa2dfcec2_b.jpg</item>
         <item>2345858</item>
+        <item>Fukushima (city)</item>
+        <item>http://www.pref.fukushima.lg.jp/site/portal-english/</item>
     </array>
 
     <array name="KantoRegion">
@@ -120,42 +134,56 @@
         <item>1</item>
         <item>http://c1.staticflickr.com/6/5293/5429123301_4e1ab9f481_b.jpg</item>
         <item>2345863</item>
+        <item>Mito</item>
+        <item>http://www.pref.ibaraki.jp/</item>
     </array>
 
     <array name="Tochigi">
         <item>1</item>
         <item>http://c1.staticflickr.com/4/3097/2448030719_6ba6b7939a_b.jpg</item>
         <item>2345887</item>
+        <item>Utsunomiya</item>
+        <item>http://www.pref.tochigi.lg.jp/</item>
     </array>
 
     <array name="Gunma">
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7143/6793919631_de6bb7de9b_b.jpg</item>
         <item>2345860</item>
+        <item>Maebashi</item>
+        <item>http://www.pref.gunma.jp/foreign/foreign_English.html</item>
     </array>
 
     <array name="Saitama">
         <item>1</item>
         <item>http://c1.staticflickr.com/6/5095/5501559759_84f186d3ca_b.jpg</item>
         <item>2345883</item>
+        <item>Saitama</item>
+        <item>http://www.pref.saitama.lg.jp/</item>
     </array>
 
     <array name="Chiba">
         <item>1</item>
         <item>http://c1.staticflickr.com/6/5512/11767793754_e6ced819df_h.jpg</item>
         <item>2345854</item>
+        <item>Chiba</item>
+        <item>https://www.pref.chiba.lg.jp/english/index.html</item>
     </array>
 
     <array name="Tokyo">
         <item>1</item>
         <item>http://c1.staticflickr.com/4/3664/3308094600_c8a1ece0e5_b.jpg</item>
         <item>2345889</item>
+        <item>Tokyo</item>
+        <item>http://www.metro.tokyo.jp/</item>
     </array>
 
     <array name="Kanagawa">
         <item>1</item>
         <item>http://c1.staticflickr.com/7/6122/5960134485_a0e9d0d567_b.jpg</item>
         <item>2345868</item>
+        <item>Yokohama</item>
+        <item>http://www.pref.kanagawa.jp/</item>
     </array>
 
     <array name="ChubuRegion">
@@ -167,54 +195,72 @@
         <item>1</item>
         <item>http://c1.staticflickr.com/1/365/32027405590_96d7bf2191_h.jpg</item>
         <item>2345878</item>
+        <item>Niigata</item>
+        <item>http://www.pref.niigata.lg.jp/en/</item>
     </array>
 
     <array name="Toyama">
         <item>1</item>
         <item>http://c1.staticflickr.com/1/630/32544969336_cee2a5ae8b_h.jpg</item>
         <item>2345891</item>
+        <item>Toyama</item>
+        <item>http://www.pref.toyama.jp/english/</item>
     </array>
 
     <array name="Ishikawa">
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7224/7249518522_a0ae8516bc_k.jpg</item>
         <item>2345864</item>
+        <item>Kanazawa</item>
+        <item>http://www.pref.ishikawa.lg.jp/</item>
     </array>
 
     <array name="Fukui">
         <item>1</item>
         <item>http://c1.staticflickr.com/3/2851/12091760495_e339376bb2_k.jpg</item>
         <item>2345856</item>
+        <item>Fukui</item>
+        <item>http://www.pref.fukui.jp/english/</item>
     </array>
 
     <array name="Yamanashi">
         <item>1</item>
         <item>http://c1.staticflickr.com/2/1676/23360836583_b3fe1aaed4_k.jpg</item>
         <item>2345895</item>
+        <item>Kōfu</item>
+        <item>http://www.pref.yamanashi.jp/english/index.html</item>
     </array>
 
     <array name="Nagano">
         <item>1</item>
         <item>http://c1.staticflickr.com/2/1655/24576752606_75d3ad296d_k.jpg</item>
         <item>2345875</item>
+        <item>Nagano</item>
+        <item>http://www.pref.nagano.lg.jp/</item>
     </array>
 
     <array name="Gifu">
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7164/6748282375_2928780135_b.jpg</item>
         <item>2345859</item>
+        <item>Gifu</item>
+        <item>http://www.pref.gifu.lg.jp/</item>
     </array>
 
     <array name="Shizuoka">
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7055/8689017048_36883ab7b9_b.jpg</item>
         <item>2345886</item>
+        <item>Shizuoka</item>
+        <item>http://www.pref.shizuoka.jp/a_foreign/english/</item>
     </array>
 
     <array name="Aichi">
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7650/16685890837_41a3d16e15_h.jpg</item>
         <item>2345851</item>
+        <item>Nagoya</item>
+        <item>http://www.pref.aichi.jp/global/en/index.html</item>
     </array>
 
     <array name="KansaiRegion">
@@ -226,42 +272,56 @@
         <item>1</item>
         <item>http://c1.staticflickr.com/6/5472/12132379896_c929b40aac_k.jpg</item>
         <item>2345872</item>
+        <item>Tsu</item>
+        <item>http://www.pref.mie.lg.jp/ENGLISH/</item>
     </array>
 
     <array name="Shiga">
         <item>1</item>
         <item>http://c1.staticflickr.com/6/5124/5300304318_639ee19924_b.jpg</item>
         <item>2345884</item>
+        <item>Ōtsu</item>
+        <item>http://www.pref.shiga.lg.jp/multilingual/english/index.html</item>
     </array>
 
     <array name="Kyoto">
         <item>1</item>
         <item>http://c1.staticflickr.com/1/777/22203887122_418f044bae_k.jpg</item>
         <item>2345871</item>
+        <item>Kyoto</item>
+        <item>http://www.pref.kyoto.jp/en/index.html</item>
     </array>
 
     <array name="Osaka">
         <item>1</item>
         <item>http://c1.staticflickr.com/2/1477/25425161470_85c1eca441_k.jpg</item>
         <item>2345881</item>
+        <item>Osaka</item>
+        <item>http://www.pref.osaka.lg.jp/en/index.html</item>
     </array>
 
     <array name="Hyogo">
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7597/17212724936_f43e161a8e_b.jpg</item>
         <item>2345862</item>
+        <item>Kobe</item>
+        <item>http://web.pref.hyogo.lg.jp/fl/english/</item>
     </array>
 
     <array name="Nara">
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7768/18266128721_ed8e010042_b.jpg</item>
         <item>2345877</item>
+        <item>Nara (city)</item>
+        <item>http://www.pref.nara.jp/</item>
     </array>
 
     <array name="Wakayama">
         <item>1</item>
         <item>http://c1.staticflickr.com/2/1491/26066302406_82371aace2_k.jpg</item>
         <item>2345892</item>
+        <item>Wakayama (city)</item>
+        <item>http://www.pref.wakayama.lg.jp/english/</item>
     </array>
 
     <array name="ChugokuRegion">
@@ -273,30 +333,40 @@
         <item>1</item>
         <item>http://c1.staticflickr.com/9/8089/8543693341_8c0a212bf7_b.jpg</item>
         <item>2345890</item>
+        <item>Tottori</item>
+        <item>http://www.pref.tottori.lg.jp/</item>
     </array>
 
     <array name="Shimane">
         <item>1</item>
         <item>http://c1.staticflickr.com/9/8326/8413752534_ef2fa69550_b.jpg</item>
         <item>2345885</item>
+        <item>Matsue</item>
+        <item>http://www1.pref.shimane.lg.jp/contents/kokusai/kokusai-e/index.html</item>
     </array>
 
     <array name="Okayama">
         <item>1</item>
         <item>http://c1.staticflickr.com/9/8092/8377057346_5bfd132921_b.jpg</item>
         <item>2345880</item>
+        <item>Okayama</item>
+        <item>http://www.pref.okayama.jp/</item>
     </array>
 
     <array name="Hiroshima">
         <item>1</item>
         <item>http://c1.staticflickr.com/9/8794/28001016653_8b1d8032d8_k.jpg</item>
         <item>2345861</item>
+        <item>Hiroshima</item>
+        <item>http://www.pref.hiroshima.lg.jp/</item>
     </array>
 
     <array name="Yamaguchi">
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7639/16811459589_162f9d01a4_k.jpg</item>
         <item>2345894</item>
+        <item>Yamaguchi</item>
+        <item>http://www.pref.yamaguchi.lg.jp/foreign/english/index.html</item>
     </array>
 
     <array name="ShikokuRegion">
@@ -308,24 +378,32 @@
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7181/6882759244_5643d15f19_k.jpg</item>
         <item>2345888</item>
+        <item>Tokushima</item>
+        <item>http://www.pref.tokushima.jp/english/</item>
     </array>
 
     <array name="Kagawa">
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7411/14029110541_17326a2929_k.jpg</item>
         <item>2345866</item>
+        <item>Takamatsu</item>
+        <item>http://www.pref.kagawa.jp/foreigner.shtml</item>
     </array>
 
     <array name="Ehime">
         <item>1</item>
         <item>http://c1.staticflickr.com/2/1549/23595777429_de2e62838d_k.jpg</item>
         <item>2345855</item>
+        <item>Matsuyama</item>
+        <item>http://www.pref.ehime.jp/</item>
     </array>
 
     <array name="Kochi">
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7261/6885840322_8b1f7c0d39_h.jpg</item>
         <item>2345869</item>
+        <item>Kōchi (city)</item>
+        <item>http://www.pref.kochi.lg.jp/english/</item>
     </array>
 
     <array name="KyushuRegion">
@@ -337,48 +415,64 @@
         <item>1</item>
         <item>http://c1.staticflickr.com/2/1503/24580134825_3e4c7564e0_b.jpg</item>
         <item>58646425</item>
+        <item>Fukuoka City</item>
+        <item>http://www.pref.fukuoka.lg.jp/somu/multilingual/english/top.html</item>
     </array>
 
     <array name="Saga">
         <item>1</item>
         <item>http://c1.staticflickr.com/6/5615/15158137014_8df396325e_k.jpg</item>
         <item>2345882</item>
+        <item>Saga</item>
+        <item>http://www.pref.saga.lg.jp/default.html</item>
     </array>
 
     <array name="Nagasaki">
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7358/16591253322_adc2491cdc_k.jpg</item>
         <item>2345876</item>
+        <item>Nagasaki</item>
+        <item>http://www.pref.nagasaki.jp/</item>
     </array>
 
     <array name="Kumamoto">
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7305/12295318193_c9ee370c7c_k.jpg</item>
         <item>2345870</item>
+        <item>Kumamoto</item>
+        <item>http://www.pref.kumamoto.jp/Default.aspx</item>
     </array>
 
     <array name="Oita">
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7628/16847912116_fed0a7d5e3_k.jpg</item>
         <item>2345879</item>
+        <item>Ōita</item>
+        <item>http://www.pref.oita.jp/</item>
     </array>
 
     <array name="Miyazaki">
         <item>1</item>
         <item>http://c1.staticflickr.com/8/7725/17400729249_0508b40f54_h.jpg</item>
         <item>2345874</item>
+        <item>Miyazaki (city)</item>
+        <item>http://www.pref.miyazaki.lg.jp/</item>
     </array>
 
     <array name="Kagoshima">
         <item>1</item>
         <item>http://c1.staticflickr.com/4/3682/12511421553_4f9a62957d_k.jpg</item>
         <item>2345867</item>
+        <item>Kagoshima</item>
+        <item>http://www.pref.kagoshima.jp/foreign/english/index.html</item>
     </array>
 
     <array name="Okinawa">
         <item>1</item>
         <item>http://c1.staticflickr.com/9/8523/8544402242_45a1faecc9_b.jpg</item>
         <item>2345896</item>
+        <item>Naha</item>
+        <item>http://www.pref.okinawa.jp/english/</item>
     </array>
 
 </resources>

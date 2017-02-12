@@ -13,12 +13,21 @@
         <item name="android:windowEnterTransition">@transition/fade</item>
         <item name="android:windowExitTransition">@transition/fade</item>
     </style>
+
+    <style name="BrandedLaunch" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/launcher_bg</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
     
     <style name="ImageViewerScreenTheme" parent="AppTheme">
         <item name="android:windowBackground">@color/dark_background</item>
         <item name="colorPrimaryDark">@color/dark_background</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="PhotoListTheme" parent="AppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
 </resources>

@@ -1,15 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <include layout="@layout/toolbar" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view_photo_list"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/photo_list_margin" />
+        android:orientation="vertical">
 
-</LinearLayout>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="0dp">
+
+            <ImageView
+                android:id="@+id/image_view_header"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:contentDescription="@string/default_content_description"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/textview_main_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_marginTop="@dimen/image_viewer_text_margins"
+                android:background="@drawable/selector_gradient"
+                android:padding="@dimen/photo_list_text_padding"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/light_text" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/photo_list_card_view"
+            app:cardBackgroundColor="@color/photo_list_background"
+            app:cardCornerRadius="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/photo_list_card_view">
+
+                <TextView
+                    android:id="@+id/textview_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/light_text" />
+
+                <TextView
+                    android:id="@+id/textview_capital"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/photo_list_text_distance"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/light_text" />
+
+                <TextView
+                    android:id="@+id/textview_website"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/photo_list_text_distance"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/light_text"
+                    android:textColorLink="@color/light_text" />
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_photo_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/photo_list_margin" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <include layout="@layout/toolbar" />
+    </FrameLayout>
+
+</FrameLayout>
