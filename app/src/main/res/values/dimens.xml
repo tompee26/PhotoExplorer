@@ -30,4 +30,8 @@
     <dimen name="image_viewer_horizontal_padding">16dp</dimen>
     <dimen name="image_viewer_vertical_padding">32dp</dimen>
 
+    <!-- About dimension -->
+    <dimen name="about_image_dimension">60dp</dimen>
+    <dimen name="about_view_separator">8dp</dimen>
+
 </resources>

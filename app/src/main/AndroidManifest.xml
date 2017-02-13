@@ -26,6 +26,9 @@
         <activity
             android:name=".view.ImageViewerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name=".view.AboutActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity android:name=".view.base.BaseActivity" />
     </application>
 

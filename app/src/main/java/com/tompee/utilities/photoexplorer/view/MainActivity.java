@@ -3,6 +3,9 @@ package com.tompee.utilities.photoexplorer.view;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -35,6 +38,28 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         CategoryListAdapter adapter = new CategoryListAdapter(this, R.layout.list_category,
                 mCategoryList);
         listView.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_about:
+                Intent intent = new Intent(this, AboutActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                setNextTransition();
+                break;
+            case R.id.menu_disclaimer:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void createCategoryList() {

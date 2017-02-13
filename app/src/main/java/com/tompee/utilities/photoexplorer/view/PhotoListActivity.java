@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.util.Pair;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.Html;
@@ -13,6 +14,7 @@ import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -28,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetPhotoListener,
-        ItemClickListener.OnItemClickListener {
+        ItemClickListener.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener {
     public static final String TAG_ID = "id";
     public static final String TAG_NAME = "name";
     public static final String TAG_URL = "url";
@@ -37,6 +39,8 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
 
     private static final String TAG = "PhotoListActivity";
 
+    private ProgressBar mProgressBar;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
     private GetPhotoTask mGetPhotoTask;
     private PhotoListAdapter mAdapter;
     private List<Photo> mPhotoList;
@@ -76,6 +80,8 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
         }
         textView.setMovementMethod(LinkMovementMethod.getInstance());
 
+        mProgressBar = (ProgressBar) findViewById(R.id.progress_horizontal);
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view_photo_list);
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemViewCacheSize(30);
@@ -100,11 +106,15 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
             }
         };
         recyclerView.addOnScrollListener(scrollListener);
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
         createGetPhotoTask();
     }
 
     private void createGetPhotoTask() {
         if (mGetPhotoTask == null) {
+            mProgressBar.setVisibility(View.VISIBLE);
             mGetPhotoTask = new GetPhotoTask(this, mPhotoList, mIdList, getIntent().
                     getStringExtra(TAG_ID), this);
             mGetPhotoTask.execute(mPageCount);
@@ -116,11 +126,15 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
         Log.d(TAG, "Page count: " + mPageCount);
         mPageCount++;
         mGetPhotoTask = null;
+        mProgressBar.setVisibility(View.GONE);
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
     public void onError() {
         mGetPhotoTask = null;
+        mProgressBar.setVisibility(View.GONE);
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
@@ -170,5 +184,15 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
     public void onBackPressed() {
         super.onBackPressed();
         setBackTransition();
+    }
+
+    @Override
+    public void onRefresh() {
+        if (mGetPhotoTask != null) {
+            mGetPhotoTask.isCancelled();
+        }
+        mPhotoList.clear();
+        mAdapter.notifyDataSetChanged();
+        createGetPhotoTask();
     }
 }

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|start"
         android:paddingBottom="@dimen/category_vertical_margin"
-        android:paddingLeft="@dimen/category_horizontal_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/category_horizontal_margin"
         android:paddingTop="@dimen/category_vertical_margin"
         android:textAppearance="?android:attr/textAppearanceListItem"
