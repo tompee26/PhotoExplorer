@@ -114,6 +114,7 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
     private void createGetPhotoTask() {
         if (mGetPhotoTask == null && mPhotoList.size() < MAX_PHOTOS) {
             mSwipeRefreshLayout.setRefreshing(true);
+            Log.d(TAG, "starting photo task");
             mGetPhotoTask = new GetPhotoTask(this, mPhotoList, mIdList, getIntent().
                     getStringExtra(TAG_ID), this);
             mGetPhotoTask.execute(mPageCount);
@@ -157,6 +158,7 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
     protected void onPause() {
         super.onPause();
         if (mGetPhotoTask != null) {
+            mSwipeRefreshLayout.setRefreshing(false);
             mGetPhotoTask.cancel(true);
             mGetPhotoTask = null;
         }
@@ -200,6 +202,7 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
         if (mGetPhotoTask != null) {
             mGetPhotoTask.isCancelled();
         }
+        mGetPhotoTask = null;
         mPhotoList.clear();
         mAdapter.notifyDataSetChanged();
         createGetPhotoTask();
