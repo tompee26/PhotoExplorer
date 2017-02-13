@@ -27,5 +27,7 @@
         images and text used here are for purpose of demonstration only, and are not intended to
         generate income.\n\n Please do not distribute this app.</string>
     <string name="copyright">Copyright 2017, Tompee. All rights reserved.</string>
+
+    <string name="license">License</string>
     <string name="version">Version %1$s</string>
 </resources>

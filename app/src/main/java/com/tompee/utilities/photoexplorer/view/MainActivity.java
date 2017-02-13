@@ -61,20 +61,28 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.menu_about:
-                Intent intent = new Intent(this, AboutActivity.class);
+                intent = new Intent(this, AboutActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 setNextTransition();
-                break;
+                return true;
             case R.id.menu_disclaimer:
                 showDisclaimer(false);
+                return true;
+            case R.id.menu_license:
+                intent = new Intent(this, LicenseActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                setNextTransition();
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
+    @SuppressWarnings("ResourceType")
     private void createCategoryList() {
         int arrayId = getResources().getIdentifier(PREFECTURE_ARRAY_NAME, "array", getPackageName());
         TypedArray prefectureArray = getResources().obtainTypedArray(arrayId);
