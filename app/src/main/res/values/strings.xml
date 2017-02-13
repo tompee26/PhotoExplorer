@@ -11,9 +11,21 @@
     <string name="capital_prefix">Capital: %1$s</string>
     <string name="copyright_prefix">&#169; by %1$s</string>
 
+    <string name="connect_error_title">Cannot connect</string>
+    <string name="connect_error_message">Cannot connect to server. Please check your network connectivity and try again.</string>
+    <string name="option_ok">OK</string>
+    <string name="option_understand">I Understand</string>
+    <string name="option_cancel">Cancel</string>
+
     <string name="about">About</string>
-    <string name="about_demo">This is a demo app only. No copyright infringement intended. All copyrights belong to their respective owners. The images and text used here are for purpose of demonstration only, and are not intended to generate income.</string>
+    <string name="about_demo">This is a demo app only. No copyright infringement intended. All
+        copyrights belong to their respective owners. The images and text used here are for purpose
+        of demonstration only, and are not intended to generate income.</string>
     <string name="disclaimer">Disclaimer</string>
+    <string name="disclaimer_message">This application uses publicly available data from Flickr.
+        No copyright infringement intended. All copyrights belong to their respective owners.\n\nThe
+        images and text used here are for purpose of demonstration only, and are not intended to
+        generate income.\n\n Please do not distribute this app.</string>
     <string name="copyright">Copyright 2017, Tompee. All rights reserved.</string>
     <string name="version">Version %1$s</string>
 </resources>

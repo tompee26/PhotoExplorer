@@ -1,5 +1,6 @@
 package com.tompee.utilities.photoexplorer.view;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.util.Pair;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.Html;
@@ -14,7 +16,6 @@ import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -36,10 +37,10 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
     public static final String TAG_URL = "url";
     public static final String TAG_CAPITAL = "capital";
     public static final String TAG_WEBSITE = "website";
-
+    /* Max photos is set to prevent unstable behavior of recycler view and staggered grid view */
+    public static final int MAX_PHOTOS = 20;
     private static final String TAG = "PhotoListActivity";
 
-    private ProgressBar mProgressBar;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private GetPhotoTask mGetPhotoTask;
     private PhotoListAdapter mAdapter;
@@ -80,8 +81,6 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
         }
         textView.setMovementMethod(LinkMovementMethod.getInstance());
 
-        mProgressBar = (ProgressBar) findViewById(R.id.progress_horizontal);
-
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view_photo_list);
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemViewCacheSize(30);
@@ -113,8 +112,8 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
     }
 
     private void createGetPhotoTask() {
-        if (mGetPhotoTask == null) {
-            mProgressBar.setVisibility(View.VISIBLE);
+        if (mGetPhotoTask == null && mPhotoList.size() < MAX_PHOTOS) {
+            mSwipeRefreshLayout.setRefreshing(true);
             mGetPhotoTask = new GetPhotoTask(this, mPhotoList, mIdList, getIntent().
                     getStringExtra(TAG_ID), this);
             mGetPhotoTask.execute(mPageCount);
@@ -126,15 +125,25 @@ public class PhotoListActivity extends BaseActivity implements GetPhotoTask.GetP
         Log.d(TAG, "Page count: " + mPageCount);
         mPageCount++;
         mGetPhotoTask = null;
-        mProgressBar.setVisibility(View.GONE);
         mSwipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
     public void onError() {
         mGetPhotoTask = null;
-        mProgressBar.setVisibility(View.GONE);
         mSwipeRefreshLayout.setRefreshing(false);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle(R.string.connect_error_title);
+        dialog.setMessage(R.string.connect_error_message);
+        dialog.setPositiveButton(R.string.option_ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                finish();
+                setBackTransition();
+            }
+        });
+        dialog.create().show();
     }
 
     @Override

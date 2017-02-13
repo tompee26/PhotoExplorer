@@ -1,6 +1,8 @@
 package com.tompee.utilities.photoexplorer.view;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,18 +12,22 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.tompee.utilities.photoexplorer.PhotoExplorerApplication;
 import com.tompee.utilities.photoexplorer.R;
 import com.tompee.utilities.photoexplorer.model.Category;
 import com.tompee.utilities.photoexplorer.view.adapter.CategoryListAdapter;
 import com.tompee.utilities.photoexplorer.view.base.BaseActivity;
+import com.tompee.utilities.photoexplorer.view.dialog.DisclaimerDialog;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener,
+        DisclaimerDialog.DisclaimerDialogListener {
     private static final String PREFECTURE_ARRAY_NAME = "Prefectures";
 
     private List<Category> mCategoryList;
+    private SharedPreferences mSharedPreferences;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,12 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         setContentView(R.layout.activity_main);
         setToolbar(R.id.toolbar, false);
         setToolbarTitle(R.string.app_name);
+
+        mSharedPreferences = getSharedPreferences(PhotoExplorerApplication.SHARED_PREF,
+                Context.MODE_PRIVATE);
+        if (!mSharedPreferences.getBoolean(PhotoExplorerApplication.TAG_DISCLAIMER, false)) {
+            showDisclaimer(true);
+        }
 
         ListView listView = (ListView) findViewById(R.id.listview_category);
         listView.setOnItemClickListener(this);
@@ -57,7 +69,8 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
                 setNextTransition();
                 break;
             case R.id.menu_disclaimer:
-                break;
+                showDisclaimer(false);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -98,5 +111,22 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         setNextTransition();
+    }
+
+    private void showDisclaimer(boolean firstTime) {
+        DisclaimerDialog dialog = DisclaimerDialog.newInstance(firstTime);
+        dialog.show(getSupportFragmentManager(), "disclaimer");
+    }
+
+    @Override
+    public void onUnderstand() {
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putBoolean(PhotoExplorerApplication.TAG_DISCLAIMER, true);
+        editor.apply();
+    }
+
+    @Override
+    public void onCancelled() {
+        finish();
     }
 }

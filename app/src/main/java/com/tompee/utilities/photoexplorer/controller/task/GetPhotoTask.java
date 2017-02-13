@@ -8,6 +8,7 @@ import com.android.volley.NoConnectionError;
 import com.tompee.utilities.photoexplorer.controller.imageservice.FlickrWrapper;
 import com.tompee.utilities.photoexplorer.model.Photo;
 import com.tompee.utilities.photoexplorer.model.PhotoGroup;
+import com.tompee.utilities.photoexplorer.view.PhotoListActivity;
 
 import java.util.List;
 
@@ -18,9 +19,6 @@ public class GetPhotoTask extends AsyncTask<Integer, Photo, Boolean> {
     private final GetPhotoListener mGetPhotoListener;
     private final List<String> mIdList;
     private final List<Photo> mPhotoList;
-
-    /* Max photos is set to prevent unstable behavior of recycler view and staggered grid view */
-    private static final int MAX_PHOTOS = 20;
 
     public GetPhotoTask(Context context, List<Photo> photoList, List<String> idList,
                         String woeId, GetPhotoListener listener) {
@@ -44,7 +42,7 @@ public class GetPhotoTask extends AsyncTask<Integer, Photo, Boolean> {
                 if (isCancelled()) {
                     return true;
                 }
-                if (mPhotoList.size() >= MAX_PHOTOS) {
+                if (mPhotoList.size() >= PhotoListActivity.MAX_PHOTOS) {
                     return true;
                 }
                 if (!mIdList.contains(id)) {
