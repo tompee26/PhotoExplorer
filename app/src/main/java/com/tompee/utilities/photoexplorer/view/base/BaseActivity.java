@@ -1,5 +1,6 @@
 package com.tompee.utilities.photoexplorer.view.base;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatDelegate;
@@ -20,6 +21,7 @@ public class BaseActivity extends FragmentActivity implements DelayTask.DelayLis
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mDelegate = AppCompatDelegate.create(this, null);
         mDelegate.onCreate(savedInstanceState);
 
@@ -50,11 +52,6 @@ public class BaseActivity extends FragmentActivity implements DelayTask.DelayLis
     protected void setToolbarTitle(int resId) {
         TextView toolbar = (TextView) findViewById(R.id.toolbar_text);
         toolbar.setText(resId);
-    }
-
-    protected void setToolbarTitle(String string) {
-        TextView toolbar = (TextView) findViewById(R.id.toolbar_text);
-        toolbar.setText(string);
     }
 
     @Override
